@@ -3,11 +3,15 @@ package com.bitmakers;
 import java.io.IOException;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.GraphicsConfiguration;
 
 public class App {
-	public static final Font MAIN_FONT = new Font("Arial", Font.PLAIN, 40);
-	public static final Dimension SCREEN_DIMENSION = Toolkit.getDefaultToolkit().getScreenSize();;
-	//public static final
+	public static final Font MAIN_FONT = new Font("Arial", Font.PLAIN, 30);
+	public static final Dimension SCREEN_DIMENSION = Toolkit.getDefaultToolkit().getScreenSize();
+	public static final GraphicsConfiguration gConfig = GraphicsEnvironment.getLocalGraphicsEnvironment()
+	.getDefaultScreenDevice().getDefaultConfiguration();
+	public static final double GRAPHICS_SCALE_X = gConfig.getDefaultTransform().getScaleX();
+	public static final double GRAPHICS_SCALE_Y = gConfig.getDefaultTransform().getScaleY();
 	/*
     public void start(Stage stage) throws IOException {
         ManageDirectories directories = new ManageDirectories();
@@ -79,31 +83,36 @@ public class App {
 */
     public static void main(String[] args) {
         System.out.println("Program has started...");
+        System.out.println(GRAPHICS_SCALE_X + " " + GRAPHICS_SCALE_Y);
         startUIInstance();
     }
     
     public static void startUIInstance() {
     	JFrame mainWindow = new JFrame("Class Assignment Organizer");
+    	//Get the content pane and remove the default layout
     	mainWindow.getContentPane().setLayout(null);
     	mainWindow.setSize(1200, 1000);
     	mainWindow.setResizable(false);
+    	mainWindow.setVisible(true);
+    	mainWindow.setDefaultCloseOperation(3);
     	
-    	//Get the dimension of the user screen
-    	Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-    	//Set the start location of the screen
-    	mainWindow.setLocation((int)(dim.width / 2) - (mainWindow.getSize().width / 2),
-    	(int)(dim.height / 2) - (mainWindow.getSize().height / 2));
+    	//Set the start location of the window to the center of the screen
+    	mainWindow.setLocation((int)(SCREEN_DIMENSION.width / 2) - (mainWindow.getSize().width / 2),
+    	(int)(SCREEN_DIMENSION.height / 2) - (mainWindow.getSize().height / 2));
+    	
+    	//Add everything to panel
     	JPanel mainPanel = new JPanel();
+    	
+    	//Create UI components
     	JButton submitButton = new JButton("Test Button");
     	submitButton.setLocation(50, 50);
-    	submitButton.setSize(150, 150);
-    	//submitButton.setFont();
+    	submitButton.setSize(350, 150);
+    	submitButton.setFont(MAIN_FONT);
     	
     	mainPanel.add(submitButton);
     	mainWindow.add(mainPanel);
+    	mainWindow.getContentPane().add(mainPanel);
     	mainWindow.getContentPane().add(submitButton);
-    	mainWindow.setVisible(true);
-    	mainWindow.setDefaultCloseOperation(3);
     }
 
 }
