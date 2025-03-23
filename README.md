@@ -3,7 +3,7 @@ The purpose of this program allows students to organize their files into folders
 copy, paste, or navigate their computer to a bunch of different subfolders just to organize their work.
 This program will use addresses of folders and files then organizes them based on user preference.
 
-The only requirements to run this program is: java runtime environment 17
+The only requirements to run this program are: java runtime environment 17 and javafx.
 
 When launching the program, a window will pop up with some choice boxes and textFields.
 The names and prompts are for ease of use and the user can understand how the program works from it.
@@ -16,7 +16,7 @@ The names and prompts are for ease of use and the user can understand how the pr
   the file name that you want to move, the address of the directory the file is stored in, the address of the
   directory you previously created, and the type of subfolder you will put it in.
 
-(The program will not break when these fields are empty)
+(The program will not break when these fields are empty or a folder is incorrect)
 
 - After the fields/choice boxes are filled out. Hit the submit button and the program will organize your file.
 
