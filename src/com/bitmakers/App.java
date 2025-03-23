@@ -6,7 +6,6 @@ import java.awt.*;
 
 public class App {
 	/*
-    @Override
     public void start(Stage stage) throws IOException {
         ManageDirectories directories = new ManageDirectories();
         ChoiceBox<String> choiceBox = new ChoiceBox<>();
