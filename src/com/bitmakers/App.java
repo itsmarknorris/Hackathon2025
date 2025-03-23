@@ -5,6 +5,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class App {
+	public static final Font MAIN_FONT = new Font("Arial", Font.PLAIN, 40);
+	public static final Dimension SCREEN_DIMENSION = Toolkit.getDefaultToolkit().getScreenSize();;
+	//public static final
 	/*
     public void start(Stage stage) throws IOException {
         ManageDirectories directories = new ManageDirectories();
@@ -81,6 +84,7 @@ public class App {
     
     public static void startUIInstance() {
     	JFrame mainWindow = new JFrame("Class Assignment Organizer");
+    	mainWindow.getContentPane().setLayout(null);
     	mainWindow.setSize(1200, 1000);
     	mainWindow.setResizable(false);
     	
@@ -91,10 +95,13 @@ public class App {
     	(int)(dim.height / 2) - (mainWindow.getSize().height / 2));
     	JPanel mainPanel = new JPanel();
     	JButton submitButton = new JButton("Test Button");
-    	
+    	submitButton.setLocation(50, 50);
+    	submitButton.setSize(150, 150);
+    	//submitButton.setFont();
     	
     	mainPanel.add(submitButton);
     	mainWindow.add(mainPanel);
+    	mainWindow.getContentPane().add(submitButton);
     	mainWindow.setVisible(true);
     	mainWindow.setDefaultCloseOperation(3);
     }
