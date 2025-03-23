@@ -91,7 +91,7 @@ public class App {
     	JFrame mainWindow = new JFrame("Class Assignment Organizer");
     	//Get the content pane and remove the default layout
     	mainWindow.getContentPane().setLayout(null);
-    	mainWindow.setSize(1200, 1000);
+    	mainWindow.setSize((int)(1200 * (1.0 - GRAPHICS_SCALE_X + 1.0)), (int)(1000 * (1.0 - GRAPHICS_SCALE_Y + 1.0)));
     	mainWindow.setResizable(false);
     	mainWindow.setVisible(true);
     	mainWindow.setDefaultCloseOperation(3);
