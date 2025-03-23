@@ -1,4 +1,4 @@
-The program is called ClassAssignmentOrganizer. The target audience is University of Arizona students.
+The program is called School File Organizer. The target audience is University of Arizona students.
 The purpose of this program allows students to organize their files into folders without needing to
 copy, paste, or navigate their computer to a bunch of different subfolders just to organize their work.
 This program will use addresses of folders and files then organizes them based on user preference.
