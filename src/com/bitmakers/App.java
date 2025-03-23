@@ -16,7 +16,6 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        ManageDirectories directories = new ManageDirectories();
         ChoiceBox<String> choiceBox = new ChoiceBox<>();
         choiceBox.getItems().addAll("CreateFolder", "ExistingFolder");
         choiceBox.setValue("CreateFolder");
@@ -50,14 +49,14 @@ public class App extends Application {
             String text1 = textField1.getText();
             String text2 = textField2.getText();
             if (selectedOption.equals("CreateFolder")) {
-                directories.createDirectories(text2, text1);
+                ManageDirectories.createDirectories(text2, text1);
             }
             else if (selectedOption.equals("ExistingFolder")){
                 String text3 = textField3.getText();
                 String text4 = textField4.getText();
                 String text5 = textField5.getText();
                 String text6 = choiceBox2.getValue();
-                directories.moveFile(text4, text3, text5, text6);
+                ManageDirectories.moveFile(text4, text3, text5, text6);
             }
         });
         
