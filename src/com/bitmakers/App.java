@@ -1,18 +1,20 @@
 package com.bitmakers;
 
-import java.io.IOException;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.GraphicsConfiguration;
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextField;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
 
-public class App {
-	public static final Font MAIN_FONT = new Font("Arial", Font.PLAIN, 30);
-	public static final Dimension SCREEN_DIMENSION = Toolkit.getDefaultToolkit().getScreenSize();
-	public static final GraphicsConfiguration gConfig = GraphicsEnvironment.getLocalGraphicsEnvironment()
-	.getDefaultScreenDevice().getDefaultConfiguration();
-	public static final double GRAPHICS_SCALE_X = gConfig.getDefaultTransform().getScaleX();
-	public static final double GRAPHICS_SCALE_Y = gConfig.getDefaultTransform().getScaleY();
-	/*
+import java.io.IOException;
+
+public class App extends Application {
+
+    @Override
     public void start(Stage stage) throws IOException {
         ManageDirectories directories = new ManageDirectories();
         ChoiceBox<String> choiceBox = new ChoiceBox<>();
@@ -79,40 +81,15 @@ public class App {
         grid.add(new Label("Select type:"),0,6);
         grid.add(choiceBox2,1,6);
         grid.add(submitButton, 1, 7);
+
+        Scene scene = new Scene(grid, 600, 600);
+        stage.setTitle("UofA File Organizer");
+        stage.setScene(scene);
+        stage.show();
     }
-*/
+
     public static void main(String[] args) {
-        System.out.println("Program has started...");
-        System.out.println(GRAPHICS_SCALE_X + " " + GRAPHICS_SCALE_Y);
-        startUIInstance();
-    }
-    
-    public static void startUIInstance() {
-    	JFrame mainWindow = new JFrame("Class Assignment Organizer");
-    	//Get the content pane and remove the default layout
-    	mainWindow.getContentPane().setLayout(null);
-    	mainWindow.setSize((int)(1200 * (1.0 - GRAPHICS_SCALE_X + 1.0)), (int)(1000 * (1.0 - GRAPHICS_SCALE_Y + 1.0)));
-    	mainWindow.setResizable(false);
-    	mainWindow.setVisible(true);
-    	mainWindow.setDefaultCloseOperation(3);
-    	
-    	//Set the start location of the window to the center of the screen
-    	mainWindow.setLocation((int)(SCREEN_DIMENSION.width / 2) - (mainWindow.getSize().width / 2),
-    	(int)(SCREEN_DIMENSION.height / 2) - (mainWindow.getSize().height / 2));
-    	
-    	//Add everything to panel
-    	JPanel mainPanel = new JPanel();
-    	
-    	//Create UI components
-    	JButton submitButton = new JButton("Test Button");
-    	submitButton.setLocation(50, 50);
-    	submitButton.setSize(350, 150);
-    	submitButton.setFont(MAIN_FONT);
-    	
-    	mainPanel.add(submitButton);
-    	mainWindow.add(mainPanel);
-    	mainWindow.getContentPane().add(mainPanel);
-    	mainWindow.getContentPane().add(submitButton);
+        launch(args);
     }
 
 }
