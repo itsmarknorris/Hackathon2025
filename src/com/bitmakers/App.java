@@ -1,19 +1,11 @@
-//package com.example;
-
-import javafx.application.Application;
-import javafx.geometry.Insets;
-import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
-import javafx.stage.Stage;
+package com.bitmakers;
 
 import java.io.IOException;
+import javax.swing.*;
+import java.awt.*;
 
-public class App extends Application {
-
+public class App {
+	/*
     @Override
     public void start(Stage stage) throws IOException {
         ManageDirectories directories = new ManageDirectories();
@@ -81,15 +73,31 @@ public class App extends Application {
         grid.add(new Label("Select type:"),0,6);
         grid.add(choiceBox2,1,6);
         grid.add(submitButton, 1, 7);
-
-        Scene scene = new Scene(grid, 500, 500);
-        stage.setTitle("File Organizer");
-        stage.setScene(scene);
-        stage.show();
     }
-
+*/
     public static void main(String[] args) {
-        launch(args);
+        System.out.println("Program has started...");
+        startUIInstance();
+    }
+    
+    public static void startUIInstance() {
+    	JFrame mainWindow = new JFrame("Class Assignment Organizer");
+    	mainWindow.setSize(1200, 1000);
+    	mainWindow.setResizable(false);
+    	
+    	//Get the dimension of the user screen
+    	Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
+    	//Set the start location of the screen
+    	mainWindow.setLocation((int)(dim.width / 2) - (mainWindow.getSize().width / 2),
+    	(int)(dim.height / 2) - (mainWindow.getSize().height / 2));
+    	JPanel mainPanel = new JPanel();
+    	JButton submitButton = new JButton("Test Button");
+    	
+    	
+    	mainPanel.add(submitButton);
+    	mainWindow.add(mainPanel);
+    	mainWindow.setVisible(true);
+    	mainWindow.setDefaultCloseOperation(3);
     }
 
 }

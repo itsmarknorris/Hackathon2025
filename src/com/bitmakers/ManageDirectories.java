@@ -1,10 +1,12 @@
-//package com.example;
+package com.bitmakers;
+
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.io.File;
+
 public class ManageDirectories {
 
-	public void createDirectories(String pathName, String directoryName) {
+	public static void createDirectories(String pathName, String directoryName) {
 		String path = pathName + "\\" + directoryName;
 		File directory = new File(path);
 		directory.mkdir();
@@ -19,7 +21,7 @@ public class ManageDirectories {
 		notesDirectory.mkdir();
 	}
 	
-	public void moveFile(String originalDirectory, String fileName, String directoryName, String destination) {
+	public static void moveFile(String originalDirectory, String fileName, String directoryName, String destination) {
 		try {
 			Files.move(Paths.get(originalDirectory + "\\" + fileName), Paths.get(directoryName + "\\" + destination + "\\" + fileName));
 		}
